@@ -1,1 +1,116 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --Color-Primary-Bg : #212050;
+    --Color-Primary-Font: #fff;
+    --Color-Primary-Border: #ffffff00;
+    --Color-Primary-Glow: #474692ac;
+    --Color-Primary-Shadown: Darken(#212050, 40%);
+    --Color-Primary-Active-Bg: rgb(104, 152, 236);
+    --Color-Primary-Active-Font: #fff;
+    --Color-Primary-Active-Border: #ffffff00;
+    --Color-Primary-Active-Glow: rgba(78, 131, 224, 0);
+    --Color-Primary-Active-Shadown: rgba(78, 131, 224, 0);
+    --Color-Primary-Hover-Bg:  #5c5ba3;
+    --Color-Primary-Hover-Font: #fff;
+    --Color-Primary-Hover-Border: #ffffff00;
+    --Color-Primary-Hover-Glow: rgb(78, 131, 224);
+    --Color-Primary-Hover-Shadown: rgb(78, 131, 224);
+    --Color-Primary-Disabled-Bg: #7b7986;
+    --Color-Primary-Disabled-Font: #bbb9b9;
+    --Color-Primary-Disabled-Border: #ffffff00;
+    --Color-Primary-Disabled-Glow: rgba(78, 131, 224, 0);
+    --Color-Primary-Disabled-Shadown: rgba(78, 131, 224, 0);
+
+    --Color-Segundary-Bg : #ffffff;
+    --Color-Segundary-Font: #212050;
+    --Color-Segundary-Border: #53b7f0;
+    --Color-Segundary-Glow: #53b6f0ab;
+    --Color-Segundary-Shadown: Darken(#212050, 40%);
+    --Color-Segundary-Active-Bg: rgb(118, 168, 254);
+    --Color-Segundary-Active-Font: #152d4e;
+    --Color-Segundary-Active-Border: #ffffff00;
+    --Color-Segundary-Active-Glow: rgba(78, 131, 224, 0);
+    --Color-Segundary-Active-Shadown: rgba(78, 131, 224, 0);
+    --Color-Segundary-Hover-Bg:  rgb(108, 140, 196);
+    --Color-Segundary-Hover-Font: #312d58;
+    --Color-Segundary-Hover-Border: #ffffff00;
+    --Color-Segundary-Hover-Glow: rgb(78, 131, 224);
+    --Color-Segundary-Hover-Shadown: rgb(78, 131, 224);
+    --Color-Segundary-Disabled-Bg: #7b7986;
+    --Color-Segundary-Disabled-Font: #bbb9b9;
+    --Color-Segundary-Disabled-Border: #ffffff00;
+    --Color-Segundary-Disabled-Glow: rgba(78, 131, 224, 0);
+    --Color-Segundary-Disabled-Shadown: rgba(78, 131, 224, 0);
+
+    // --Color-Warning-Bg : #fff;
+    // --Color-Warning-Font: #fff;
+    // --Color-Warning-Active-Bg: #fff;
+    // --Color-Warning-Active-Font: #fff;
+    // --Color-Warning-Hover-Bg:  #fff;
+    // --Color-Warning-Hover-Font: #fff;
+    // --Color-Warning-Disabled-Bg: #fff;
+    // --Color-Warning-Disabled-Font: #fff;
+
+    // --Color-Alert-Bg : #fff;
+    // --Color-Alert-Font: #fff;
+    // --Color-Alert-Active-Bg: #fff;
+    // --Color-Alert-Active-Font: #fff;
+    // --Color-Alert-Hover-Bg:  #fff;
+    // --Color-Alert-Hover-Font: #fff;
+    // --Color-Alert-Disabled-Bg: #fff;
+    // --Color-Alert-Disabled-Font: #fff;
+
+    // --Color-Sucess-Bg : #fff;
+    // --Color-Sucess-Font: #fff;
+    // --Color-Sucess-Active-Bg: #fff;
+    // --Color-Sucess-Active-Font: #fff;
+    // --Color-Sucess-Hover-Bg:  #fff;
+    // --Color-Sucess-Hover-Font: #fff;
+    // --Color-Sucess-Disabled-Bg: #fff;
+    // --Color-Sucess-Disabled-Font: #fff;
+    
+    // --Color-Disabled-Bg : #fff;
+    // --Color-Disabled-Font: #fff;
+    // --Color-Disabled-Active-Bg: #fff;
+    // --Color-Disabled-Active-Font: #fff;
+    // --Color-Disabled-Hover-Bg:  #fff;
+    // --Color-Disabled-Hover-Font: #fff;
+    // --Color-Disabled-Disabled-Bg: #fff;
+    // --Color-Disabled-Disabled-Font: #fff;
+}
+// @function Generate-Vars($ColorId){
+//     --Color-{$ColorID} 
+// }
+body {
+    font-size: 100%;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+* {
+    overflow: hidden;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none;
+    border: none;
+  }
+
+  @mixin Generate-Style-Class($StyleId, $functions: ('active', 'hover', 'disabled')) {
+    .#{$StyleId} {
+        background-color: var(--Color-#{$StyleId}-Bg);
+        color: var(--Color-#{$StyleId}-Font);
+
+        @each $StyleFunction in $functions {
+            &:#{$StyleFunction} {
+                background-color: var(--Color-#{$StyleId}-#{$StyleFunction}-Bg);
+                color: var(--Color-#{$StyleId}-#{$StyleFunction}-Font);
+            }
+        }
+    }
+}
+
+@include Generate-Style-Class('Primary');
+@include Generate-Style-Class('Segundary');
