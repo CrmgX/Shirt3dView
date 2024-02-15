@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "https://crmgx.github.io/Shirt3dView",
             "outputPath": "dist/shirt3d-viewer",
             "index": "src/index.html",
             "browser": "src/main.ts",
